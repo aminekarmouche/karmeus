@@ -5,6 +5,9 @@ image: node:8.9.0
 before_script:
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
   - npm install
+  - npm install -g lint
+  - npm install -g eslint
+
 
 stages:
   - test
