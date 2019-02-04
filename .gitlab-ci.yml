@@ -35,4 +35,4 @@ deployToAWS:
     - master
   stage: deploy
   script:
-    - bash sude chmod u+x .ssh/config/deploy.sh
+    - bash sudo chmod u+x .ssh/config/deploy.sh
