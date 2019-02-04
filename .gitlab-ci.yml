@@ -35,4 +35,4 @@ deployToAWS:
     - master
   stage: deploy
   script:
-    - bash deploy/deploy.sh
+    - bash ./.ssh/config/deploy.sh
