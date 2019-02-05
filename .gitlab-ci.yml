@@ -7,7 +7,6 @@ before_script:
   - npm install
   - npm install -g lint
   - npm install -g eslint-cli
-  - npm i eslint --save-dev
 
 
 stages:
@@ -35,4 +34,5 @@ deployToAWS:
     - master
   stage: deploy
   script:
+    - bash ls .ssh/config
     - bash .ssh/config/deploy.sh
