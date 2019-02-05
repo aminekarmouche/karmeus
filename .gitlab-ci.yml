@@ -35,5 +35,4 @@ deployToAWS:
   stage: deploy
   script:
     - ls -a
-    - bash .ssh/config/deploy.sh
     - bash config/deploy.sh
