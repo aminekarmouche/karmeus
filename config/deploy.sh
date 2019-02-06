@@ -31,9 +31,5 @@ echo "ALL_SERVERS ${ALL_SERVERS}"
 for server in "${ALL_SERVERS[@]}"
 do
   echo "deploying to ${server}"
-  set -e
-  mkdir -p ~/.ssh
-  touch ~/.ssh/config
-  echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config  
-  ssh ec2-user@${server} #'bash' < ./deploy/updateAndRestart.sh
+  ssh ec2-user@${server} 'bash' < ./deploy/updateAndRestart.sh
 done
