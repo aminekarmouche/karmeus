@@ -5,9 +5,11 @@
 
 # Lets write the public key of our aws instance
 eval $(ssh-agent -s)
-echo "$PRIVATE_KEY"
-echo "$PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-
+#echo "$PRIVATE_KEY"
+#echo "$PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+ssh-add <(echo "$SSH_PRIVATE_KEY")
+mkdir -p ~/.ssh
+echo '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 # ** Alternative approach
 # echo -e "$PRIVATE_KEY" > /root/.ssh/id_rsa
 # chmod 600 /root/.ssh/id_rsa
