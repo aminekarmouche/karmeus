@@ -15,7 +15,7 @@ eval $(ssh-agent -s)
 
 # ** Alternative approach
  echo -e "$PRIVATE_KEY" > ~/.ssh/id_rsa
- chmod 600 /root/.ssh/id_rsa
+ chmod 600 ~/.ssh/id_rsa
 # ** End of alternative approach
 
 # disable the host key checking.
