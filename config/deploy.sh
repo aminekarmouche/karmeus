@@ -9,13 +9,13 @@ eval $(ssh-agent -s)
 #echo "$PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
 
 
-#ssh-add <(echo "$SSH_PRIVATE_KEY")
+ssh-add <(echo "$SSH_PRIVATE_KEY")
 #mkdir -p ~/.ssh
 #echo '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 # ** Alternative approach
- echo -e "$PRIVATE_KEY" > ~/.ssh/id_rsa
- chmod 600 ~/.ssh/id_rsa
+#echo -e "$PRIVATE_KEY" > ~/.ssh/id_rsa
+#chmod 600 ~/.ssh/id_rsa
 # ** End of alternative approach
 
 # disable the host key checking.
