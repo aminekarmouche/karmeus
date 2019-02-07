@@ -7,12 +7,15 @@
 eval $(ssh-agent -s)
 #echo "$PRIVATE_KEY"
 #echo "$PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-ssh-add <(echo "$SSH_PRIVATE_KEY")
-mkdir -p ~/.ssh
-echo '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+
+#ssh-add <(echo "$SSH_PRIVATE_KEY")
+#mkdir -p ~/.ssh
+#echo '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
 # ** Alternative approach
-# echo -e "$PRIVATE_KEY" > /root/.ssh/id_rsa
-# chmod 600 /root/.ssh/id_rsa
+ echo -e "$PRIVATE_KEY" > ~/.ssh/id_rsa
+ chmod 600 /root/.ssh/id_rsa
 # ** End of alternative approach
 
 # disable the host key checking.
@@ -34,5 +37,5 @@ echo "ALL_SERVERS ${ALL_SERVERS}"
 for server in "${ALL_SERVERS[@]}"
 do
   echo "deploying to ${server}"
-  ssh -o StrictHostKeyChecking=no ubuntu@${server} 'bash' < ./deploy/updateAndRestart.sh
+  ssh -o StrictHostKeyChecking=no ec2-user@${server} 'bash' < ./deploy/updateAndRestart.sh
 done
