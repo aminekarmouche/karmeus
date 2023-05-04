@@ -11,11 +11,10 @@ permissions: write-all
 jobs:
   issue:
       runs-on: ubuntu-latest
-
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       steps:
         - uses: actions/checkout@v2
-          with:
-            repo-token: ${{ secrets.GITHUB_TOKEN }}
           if: github.event.pull_request.user.login  == 'dependabot[bot]'
           
         - name: Open issue if Dependabot PR
