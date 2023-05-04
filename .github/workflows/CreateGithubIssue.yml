@@ -6,6 +6,8 @@ on:
       - master
     types: [ opened, reopened]
 
+permissions: write-all
+
 jobs:
   issue:
       runs-on: ubuntu-latest
