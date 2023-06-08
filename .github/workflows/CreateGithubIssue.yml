@@ -14,10 +14,10 @@ jobs:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       steps:
         - uses: actions/checkout@v2
-          # if: github.event.pull_request.user.login  == 'dependabot[bot]'
+          if: github.event.pull_request.user.login  == 'dependabot[bot]'
           
         - name: Open issue if Dependabot PR
-          # if: github.event.pull_request.user.login  == 'dependabot[bot]'
+          if: github.event.pull_request.user.login  == 'dependabot[bot]'
           env:
             pr_title: ${{github.event.pull_request.title}}
             pr_number: ${{github.event.pull_request.number}}
